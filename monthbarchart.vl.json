@@ -8,24 +8,30 @@
   "transform": [
     {
       "fold": [
-        "Selangor",
-        "Johor",
-        "Pulau Pinang",
-        "Negeri Sembilan",
-        "Terengganu",
-        "Pahang",
-        "Perlis",
-        "Kuala Lumpur",
-        "Kedah",
-        "Perak",
-        "Kelantan",
-        "Putrajaya",
+        "Selangor", 
+        "Johor", 
+        "Pulau Pinang", 
+        "Negeri Sembilan", 
+        "Terengganu", 
+        "Pahang", 
+        "Perlis", 
+        "Kuala Lumpur", 
+        "Kedah", 
+        "Perak", 
+        "Kelantan", 
+        "Putrajaya", 
         "Melaka"
       ],
       "as": ["State", "AQI"]
     },
     {
-      "aggregate": [{"op": "mean", "field": "AQI", "as": "Average AQI"}],
+      "aggregate": [
+        {
+          "op": "mean",
+          "field": "AQI",
+          "as": "Average AQI"
+        }
+      ],
       "groupby": ["date"]
     },
     {
@@ -54,7 +60,10 @@
         "y": {
           "field": "Month",
           "type": "nominal",
-          "axis": {"title": null, "labelFontWeight": "bold"},
+          "axis": {
+            "title": null,
+            "labelFontWeight": "bold"
+          },
           "sort": "-x"
         },
         "color": {
@@ -67,18 +76,8 @@
           "legend": null
         },
         "tooltip": [
-          {
-            "field": "Month",
-            "type": "nominal",
-            "title": "Month",
-            "fontWeight": "bold"
-          },
-          {
-            "field": "Average AQI",
-            "type": "quantitative",
-            "title": "Average AQI",
-            "fontWeight": "bold"
-          }
+          {"field": "Month", "type": "nominal", "title": "Month", "fontWeight": "bold"},
+          {"field": "Average AQI", "type": "quantitative", "title": "Average AQI", "fontWeight": "bold"}
         ]
       },
       "layer": [
@@ -95,14 +94,11 @@
             "align": "left",
             "baseline": "middle",
             "dx": 3,
-            "fontWeight": "bold"
+            "fontWeight": "bold",
+            "fontSize": 18  // Increased font size
           },
           "encoding": {
-            "text": {
-              "field": "Average AQI",
-              "type": "quantitative",
-              "format": ".0f"
-            },
+            "text": {"field": "Average AQI", "type": "quantitative", "format": ".0f"},
             "x": {"field": "Average AQI", "type": "quantitative"},
             "y": {"field": "Month", "type": "nominal"},
             "color": {"value": "black"}
@@ -126,7 +122,10 @@
         "y": {
           "field": "Month",
           "type": "nominal",
-          "axis": {"title": null, "labelFontWeight": "bold"},
+          "axis": {
+            "title": null,
+            "labelFontWeight": "bold"
+          },
           "sort": "-x"
         },
         "color": {
@@ -139,18 +138,8 @@
           "legend": null
         },
         "tooltip": [
-          {
-            "field": "Month",
-            "type": "nominal",
-            "title": "Month",
-            "fontWeight": "bold"
-          },
-          {
-            "field": "Average AQI",
-            "type": "quantitative",
-            "title": "Average AQI",
-            "fontWeight": "bold"
-          }
+          {"field": "Month", "type": "nominal", "title": "Month", "fontWeight": "bold"},
+          {"field": "Average AQI", "type": "quantitative", "title": "Average AQI", "fontWeight": "bold"}
         ]
       },
       "layer": [
@@ -167,14 +156,11 @@
             "align": "left",
             "baseline": "middle",
             "dx": 3,
-            "fontWeight": "bold"
+            "fontWeight": "bold",
+            "fontSize": 18  // Increased font size
           },
           "encoding": {
-            "text": {
-              "field": "Average AQI",
-              "type": "quantitative",
-              "format": ".0f"
-            },
+            "text": {"field": "Average AQI", "type": "quantitative", "format": ".0f"},
             "x": {"field": "Average AQI", "type": "quantitative"},
             "y": {"field": "Month", "type": "nominal"},
             "color": {"value": "black"}
@@ -185,6 +171,9 @@
   ],
   "config": {
     "background": "#ffffff",
-    "axis": {"labelFontSize": 12, "titleFontSize": 14}
+    "axis": {
+      "labelFontSize": 15,
+      "titleFontSize": 14
+    }
   }
 }
