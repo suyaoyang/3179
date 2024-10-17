@@ -93,7 +93,7 @@
             "align": "left",
             "baseline": "middle",
             "dx": 3,
-            "fontWeight": "bold"  // Bold text inside the bars
+            "fontWeight": "bold"  
           },
           "encoding": {
             "text": {"field": "Average AQI", "type": "quantitative", "format": ".0f"},
@@ -154,7 +154,7 @@
             "align": "left",
             "baseline": "middle",
             "dx": 3,
-            "fontWeight": "bold"  // Bold text inside the bars
+            "fontWeight": "bold"  
           },
           "encoding": {
             "text": {"field": "Average AQI", "type": "quantitative", "format": ".0f"},
