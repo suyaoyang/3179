@@ -167,7 +167,7 @@
     }
   ],
   "config": {
-    "background": "#F9F9F9",
+    "background": "#ffffff",
     "axis": {
       "labelFontSize": 12,
       "titleFontSize": 15
