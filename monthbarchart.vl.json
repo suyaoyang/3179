@@ -1,0 +1,190 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A bar chart showing the top 3 best and worst months based on AQI values in West Malaysia in 2021.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/suyaoyang/3179/main/Monthly_Average_AQI.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {
+      "fold": [
+        "Selangor",
+        "Johor",
+        "Pulau Pinang",
+        "Negeri Sembilan",
+        "Terengganu",
+        "Pahang",
+        "Perlis",
+        "Kuala Lumpur",
+        "Kedah",
+        "Perak",
+        "Kelantan",
+        "Putrajaya",
+        "Melaka"
+      ],
+      "as": ["State", "AQI"]
+    },
+    {
+      "aggregate": [{"op": "mean", "field": "AQI", "as": "Average AQI"}],
+      "groupby": ["date"]
+    },
+    {
+      "window": [{"op": "rank", "as": "rank"}],
+      "sort": [{"field": "Average AQI", "order": "descending"}]
+    },
+    {
+      "calculate": "datum.date == 1 ? 'January' : datum.date == 2 ? 'February' : datum.date == 3 ? 'March' : datum.date == 4 ? 'April' : datum.date == 5 ? 'May' : datum.date == 6 ? 'June' : datum.date == 7 ? 'July' : datum.date == 8 ? 'August' : datum.date == 9 ? 'September' : datum.date == 10 ? 'October' : datum.date == 11 ? 'November' : 'December'",
+      "as": "Month"
+    }
+  ],
+  "hconcat": [
+    {
+      "transform": [{"filter": "datum.rank <= 3"}],
+      "title": {"text": "Worst Months", "fontWeight": "bold"},
+      "width": 300,
+      "height": 150,
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "Average AQI",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {"domain": [0, 100]}
+        },
+        "y": {
+          "field": "Month",
+          "type": "nominal",
+          "axis": {"title": null, "labelFontWeight": "bold"},
+          "sort": "-x"
+        },
+        "color": {
+          "field": "Average AQI",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 50, 100, 150, 200],
+            "range": ["#00E400", "#FFFF00", "#FF7E00", "#FF0000", "#7E0023"]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "Month",
+            "type": "nominal",
+            "title": "Month",
+            "fontWeight": "bold"
+          },
+          {
+            "field": "Average AQI",
+            "type": "quantitative",
+            "title": "Average AQI",
+            "fontWeight": "bold"
+          }
+        ]
+      },
+      "layer": [
+        {
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Average AQI", "type": "quantitative"},
+            "y": {"field": "Month", "type": "nominal"}
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dx": 3,
+            "fontWeight": "bold"
+          },
+          "encoding": {
+            "text": {
+              "field": "Average AQI",
+              "type": "quantitative",
+              "format": ".0f"
+            },
+            "x": {"field": "Average AQI", "type": "quantitative"},
+            "y": {"field": "Month", "type": "nominal"},
+            "color": {"value": "black"}
+          }
+        }
+      ]
+    },
+    {
+      "transform": [{"filter": "datum.rank >= 10"}],
+      "title": {"text": "Best Months", "fontWeight": "bold"},
+      "width": 300,
+      "height": 150,
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "Average AQI",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {"domain": [0, 100]}
+        },
+        "y": {
+          "field": "Month",
+          "type": "nominal",
+          "axis": {"title": null, "labelFontWeight": "bold"},
+          "sort": "-x"
+        },
+        "color": {
+          "field": "Average AQI",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 50, 100, 150, 200],
+            "range": ["#00E400", "#FFFF00", "#FF7E00", "#FF0000", "#7E0023"]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "Month",
+            "type": "nominal",
+            "title": "Month",
+            "fontWeight": "bold"
+          },
+          {
+            "field": "Average AQI",
+            "type": "quantitative",
+            "title": "Average AQI",
+            "fontWeight": "bold"
+          }
+        ]
+      },
+      "layer": [
+        {
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Average AQI", "type": "quantitative"},
+            "y": {"field": "Month", "type": "nominal"}
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dx": 3,
+            "fontWeight": "bold"
+          },
+          "encoding": {
+            "text": {
+              "field": "Average AQI",
+              "type": "quantitative",
+              "format": ".0f"
+            },
+            "x": {"field": "Average AQI", "type": "quantitative"},
+            "y": {"field": "Month", "type": "nominal"},
+            "color": {"value": "black"}
+          }
+        }
+      ]
+    }
+  ],
+  "config": {
+    "background": "#F9F9F9",
+    "axis": {"labelFontSize": 12, "titleFontSize": 14}
+  }
+}
