@@ -8,24 +8,33 @@
   "transform": [
     {
       "fold": [
-        "Selangor AQI",
-        "Johor AQI",
-        "Penang AQI",
-        "NegeriSembilan AQI",
-        "Terrengganu AQI",
-        "Pahang AQI",
-        "Perlis AQI",
-        "Kl AQI",
-        "Kedah AQI",
-        "Perak AQI",
-        "Kelantan AQI",
+        "Selangor AQI", 
+        "Johor AQI", 
+        "Penang AQI", 
+        "NegeriSembilan AQI", 
+        "Terrengganu AQI", 
+        "Pahang AQI", 
+        "Perlis AQI", 
+        "Kl AQI", 
+        "Kedah AQI", 
+        "Perak AQI", 
+        "Kelantan AQI", 
         "Putrajaya AQI"
       ],
       "as": ["State", "AQI"]
     },
-    {"calculate": "replace(datum.State, ' AQI', '')", "as": "State"},
     {
-      "aggregate": [{"op": "mean", "field": "AQI", "as": "Average AQI"}],
+      "calculate": "replace(datum.State, ' AQI', '')",
+      "as": "State"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "mean",
+          "field": "AQI",
+          "as": "Average AQI"
+        }
+      ],
       "groupby": ["State"]
     },
     {
@@ -36,7 +45,9 @@
   "hconcat": [
     {
       "transform": [{"filter": "datum.rank <= 3"}],
-      "title": "Worst 3 States",
+      "title": {"text": "Worst Air", "fontWeight": "bold"},
+      "width": 300,
+      "height": 150,
       "mark": "bar",
       "encoding": {
         "x": {
@@ -48,7 +59,10 @@
         "y": {
           "field": "State",
           "type": "nominal",
-          "axis": {"title": null},
+          "axis": {
+            "title": null,
+            "labelFontWeight": "bold"
+          },
           "sort": "-x"
         },
         "color": {
@@ -61,12 +75,8 @@
           "legend": null
         },
         "tooltip": [
-          {"field": "State", "type": "nominal", "title": "State"},
-          {
-            "field": "Average AQI",
-            "type": "quantitative",
-            "title": "Average AQI"
-          }
+          {"field": "State", "type": "nominal", "title": "State", "fontWeight": "bold"},
+          {"field": "Average AQI", "type": "quantitative", "title": "Average AQI", "fontWeight": "bold"}
         ]
       },
       "layer": [
@@ -82,14 +92,11 @@
             "type": "text",
             "align": "left",
             "baseline": "middle",
-            "dx": 3
+            "dx": 3,
+            "fontWeight": "bold"  // Bold text inside the bars
           },
           "encoding": {
-            "text": {
-              "field": "Average AQI",
-              "type": "quantitative",
-              "format": ".0f"
-            },
+            "text": {"field": "Average AQI", "type": "quantitative", "format": ".0f"},
             "x": {"field": "Average AQI", "type": "quantitative"},
             "y": {"field": "State", "type": "nominal"},
             "color": {"value": "black"}
@@ -99,7 +106,9 @@
     },
     {
       "transform": [{"filter": "datum.rank >= 10"}],
-      "title": "Best 3 States",
+      "title": {"text": "Best Air", "fontWeight": "bold"},
+      "width": 300,
+      "height": 150,
       "mark": "bar",
       "encoding": {
         "x": {
@@ -111,7 +120,10 @@
         "y": {
           "field": "State",
           "type": "nominal",
-          "axis": {"title": null},
+          "axis": {
+            "title": null,
+            "labelFontWeight": "bold"
+          },
           "sort": "-x"
         },
         "color": {
@@ -124,12 +136,8 @@
           "legend": null
         },
         "tooltip": [
-          {"field": "State", "type": "nominal", "title": "State"},
-          {
-            "field": "Average AQI",
-            "type": "quantitative",
-            "title": "Average AQI"
-          }
+          {"field": "State", "type": "nominal", "title": "State", "fontWeight": "bold"},
+          {"field": "Average AQI", "type": "quantitative", "title": "Average AQI", "fontWeight": "bold"}
         ]
       },
       "layer": [
@@ -145,14 +153,11 @@
             "type": "text",
             "align": "left",
             "baseline": "middle",
-            "dx": 3
+            "dx": 3,
+            "fontWeight": "bold"  // Bold text inside the bars
           },
           "encoding": {
-            "text": {
-              "field": "Average AQI",
-              "type": "quantitative",
-              "format": ".0f"
-            },
+            "text": {"field": "Average AQI", "type": "quantitative", "format": ".0f"},
             "x": {"field": "Average AQI", "type": "quantitative"},
             "y": {"field": "State", "type": "nominal"},
             "color": {"value": "black"}
@@ -163,6 +168,9 @@
   ],
   "config": {
     "background": "#F9F9F9",
-    "axis": {"labelFontSize": 12, "titleFontSize": 14}
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 15
+    }
   }
 }
