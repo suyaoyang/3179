@@ -1,0 +1,157 @@
+date,State,AQI
+1,Selangor,61
+2,Selangor,67
+3,Selangor,67
+4,Selangor,63
+5,Selangor,64
+6,Selangor,61
+7,Selangor,62
+8,Selangor,58
+9,Selangor,60
+10,Selangor,65
+11,Selangor,59
+12,Selangor,65
+1,Johor,34
+2,Johor,49
+3,Johor,47
+4,Johor,52
+5,Johor,45
+6,Johor,52
+7,Johor,49
+8,Johor,43
+9,Johor,46
+10,Johor,51
+11,Johor,42
+12,Johor,37
+1,Pulau Pinang,55
+2,Pulau Pinang,62
+3,Pulau Pinang,59
+4,Pulau Pinang,47
+5,Pulau Pinang,48
+6,Pulau Pinang,51
+7,Pulau Pinang,54
+8,Pulau Pinang,43
+9,Pulau Pinang,45
+10,Pulau Pinang,48
+11,Pulau Pinang,39
+12,Pulau Pinang,49
+1,Negeri Sembilan,49
+2,Negeri Sembilan,59
+3,Negeri Sembilan,58
+4,Negeri Sembilan,58
+5,Negeri Sembilan,54
+6,Negeri Sembilan,54
+7,Negeri Sembilan,55
+8,Negeri Sembilan,48
+9,Negeri Sembilan,48
+10,Negeri Sembilan,54
+11,Negeri Sembilan,49
+12,Negeri Sembilan,50
+1,Terengganu,40
+2,Terengganu,51
+3,Terengganu,41
+4,Terengganu,44
+5,Terengganu,39
+6,Terengganu,47
+7,Terengganu,51
+8,Terengganu,46
+9,Terengganu,43
+10,Terengganu,45
+11,Terengganu,29
+12,Terengganu,40
+1,Pahang,43
+2,Pahang,55
+3,Pahang,52
+4,Pahang,52
+5,Pahang,46
+6,Pahang,51
+7,Pahang,55
+8,Pahang,50
+9,Pahang,43
+10,Pahang,47
+11,Pahang,34
+12,Pahang,41
+1,Perlis,49
+2,Perlis,55
+3,Perlis,47
+4,Perlis,37
+5,Perlis,32
+6,Perlis,46
+7,Perlis,42
+8,Perlis,30
+9,Perlis,32
+10,Perlis,37
+11,Perlis,28
+12,Perlis,42
+1,Kuala Lumpur,50
+2,Kuala Lumpur,58
+3,Kuala Lumpur,61
+4,Kuala Lumpur,58
+5,Kuala Lumpur,58
+6,Kuala Lumpur,56
+7,Kuala Lumpur,56
+8,Kuala Lumpur,50
+9,Kuala Lumpur,52
+10,Kuala Lumpur,55
+11,Kuala Lumpur,52
+12,Kuala Lumpur,56
+1,Kedah,49
+2,Kedah,56
+3,Kedah,52
+4,Kedah,40
+5,Kedah,39
+6,Kedah,43
+7,Kedah,45
+8,Kedah,34
+9,Kedah,37
+10,Kedah,37
+11,Kedah,31
+12,Kedah,46
+1,Perak,47
+2,Perak,58
+3,Perak,56
+4,Perak,49
+5,Perak,50
+6,Perak,48
+7,Perak,54
+8,Perak,46
+9,Perak,46
+10,Perak,46
+11,Perak,39
+12,Perak,48
+1,Kelantan,51
+2,Kelantan,65
+3,Kelantan,52
+4,Kelantan,50
+5,Kelantan,44
+6,Kelantan,47
+7,Kelantan,55
+8,Kelantan,47
+9,Kelantan,47
+10,Kelantan,52
+11,Kelantan,36
+12,Kelantan,50
+1,Putrajaya,51
+2,Putrajaya,62
+3,Putrajaya,60
+4,Putrajaya,57
+5,Putrajaya,54
+6,Putrajaya,53
+7,Putrajaya,56
+8,Putrajaya,49
+9,Putrajaya,47
+10,Putrajaya,53
+11,Putrajaya,44
+12,Putrajaya,49
+1,Melaka,39
+2,Melaka,52
+3,Melaka,55
+4,Melaka,60
+5,Melaka,55
+6,Melaka,59
+7,Melaka,60
+8,Melaka,54
+9,Melaka,49
+10,Melaka,54
+11,Melaka,46
+12,Melaka,45
