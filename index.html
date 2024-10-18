@@ -10,46 +10,140 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+            background-color: #fff; /* Set the background color to pure white */
             color: #333;
         }
         .header {
             display: flex;
             align-items: center; /* Align items vertically */
-            justify-content: flex-start; /* Align items horizontally */
             padding: 10px 20px;
         }
         .header-content {
-            margin-right: 20px; /* Space between title and image */
+            display: flex;
+            align-items: center;
         }
         .header h1 {
-            font-size: 2.8em;
+            font-size: 2.5em; /* Reduced the font size slightly */
             font-weight: 700;
             color: #333;
             line-height: 1.2;
             margin-bottom: 5px;
         }
-        .header p {
-            font-size: 1.2em;
+        .header .subtitle {
+            font-size: 1.1em; /* Reduced subtitle size */
             color: #555;
             font-weight: 400;
-            margin-top: 0;
+            margin: 5px 0;
+        }
+        .colored-bar {
+            width: 10px;
+            height: 60px;
+            background: linear-gradient(to bottom, green, yellow, red); /* Gradient bar */
+            margin-right: 15px; /* Spacing between bar and text */
+        }
+        .description {
+            font-size: 0.9em;
+            color: #555;
         }
         .header img {
-            max-width: 400px; /* Increase the image width */
+            max-width: 450px;
             height: auto;
+            margin-left: auto; /* Automatically push the image to the far right */
+        }
+
+        .chart-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px; /* Reduced padding */
+            width: 100%;
+        }
+
+        .chart-wrapper {
+            width: 45%; /* Reduced width slightly */
+            height: 220px; /* Adjusted height for better alignment */
+        }
+
+        .map-wrapper {
+            width: 35%; /* Keep map size matching bar chart size */
+            height: 220px; /* Adjust height to align with bar chart */
+            margin-left: -30px; /* Move the map further to the right */
+            margin-top: -20px; /* Move the map up */
+        }
+
+        .chart {
+            width: 100%; /* Full width of the wrapper */
+            height: 100%; /* Full height of the wrapper */
+        }
+
+        h3 {
+            text-align: center; /* Center align titles for charts */
+            margin-bottom: 10px; /* Space below the title */
+            font-size: 1.1em; /* Slightly smaller font for the titles */
         }
     </style>
+    <!-- Add Vega and Vega-Lite libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
 <body>
 
     <div class="header">
         <div class="header-content">
-            <h1>Air Quality Index in West Malaysia (2021)</h1>
-            <p>Levels of average AQI pollution in West Malaysia states in 2021</p>
+            <div class="colored-bar"></div>
+            <div>
+                <h1>Air Quality Index in West Malaysia (2021)</h1>
+                <p class="subtitle">Levels of average AQI pollution in West Malaysia states in 2021.</p>
+                <p class="description">This visualization highlights the average Air Quality Index (AQI) across various states of West Malaysia throughout 2021 for every month</p>
+            </div>
         </div>
         <img src="https://github.com/suyaoyang/3179/blob/main/AQI-Scale-rework.png?raw=true" alt="AQI Scale">
     </div>
+
+    <!-- Container for Worst and Best Air Quality States chart and Map -->
+    <div class="chart-container">
+        <div class="chart-wrapper">
+            <h3>Worst and Best Air Quality States</h3>
+            <div id="chart-state" class="chart"></div>
+        </div>
+
+        <div class="map-wrapper">
+            <h3>Average AQI By State (Month)</h3>
+            <div id="map-chart" class="chart"></div>
+        </div>
+    </div>
+
+    <!-- Container for Worst and Best Months chart -->
+    <div class="chart-container">
+        <div class="chart-wrapper" style="margin-left: 50px;"> <!-- Reduced margin-left -->
+            <h3>Worst and Best Months</h3> <!-- Title for the second chart -->
+            <div id="chart-month" class="chart"></div>
+        </div>
+    </div>
+
+
+    <!-- Footer section for attribution and authorship -->
+    <footer>
+        <p>Data Source: https://aqicn.org/city/malaysia</p>
+        <p>Created by: Su Yao Yang | Date: October 2024</p>
+    </footer>
+
+    <script type="text/javascript">
+        // Embed the Vega-Lite visualization for the combined state chart (worst and best)
+        vegaEmbed('#chart-state', 'https://raw.githubusercontent.com/suyaoyang/3179/main/barchartforstate.vl.json').then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        // Embed the Vega-Lite visualization for the combined month chart (worst and best)
+        vegaEmbed('#chart-month', 'https://raw.githubusercontent.com/suyaoyang/3179/main/monthbarchart.vl.json').then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        // Embed the Vega-Lite visualization for the map chart
+        vegaEmbed('#map-chart', 'https://raw.githubusercontent.com/suyaoyang/3179/main/mapchart.vl.json').then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+    </script>
 
 </body>
 </html>
