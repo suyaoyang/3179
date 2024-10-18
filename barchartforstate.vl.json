@@ -36,7 +36,7 @@
   "hconcat": [
     {
       "transform": [{"filter": "datum.rank <= 3"}],
-      "title": {"text": "Worst Air", "fontWeight": "bold"},
+      "title": {"text": "Worst States", "fontWeight": "bold"},
       "width": 300,
       "height": 150,
       "mark": "bar",
@@ -109,7 +109,7 @@
     },
     {
       "transform": [{"filter": "datum.rank >= 10"}],
-      "title": {"text": "Best Air", "fontWeight": "bold"},
+      "title": {"text": "Best States", "fontWeight": "bold"},
       "width": 300,
       "height": 150,
       "mark": "bar",
