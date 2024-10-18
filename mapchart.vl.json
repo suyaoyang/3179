@@ -1,0 +1,568 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 450,
+  "height": 450,
+  "title": {
+    "text": "Average AQI by State in West Malaysia For Each Month",
+    "fontSize": 18
+  },
+  "params": [
+    {
+      "name": "selectedMonth",
+      "value": "January",
+      "bind": {
+        "input": "select",
+        "options": [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December"
+        ],
+        "name": "Select Month: "
+      }
+    }
+  ],
+  "data": {
+    "url": "https://raw.githubusercontent.com/suyaoyang/3179/refs/heads/main/ne_10m_admin_1_states_provinces.json",
+    "format": {"type": "topojson", "feature": "ne_10m_admin_1_states_provinces"}
+  },
+  "layer": [
+    {
+      "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
+      "encoding": {
+        "color": {
+          "field": "AQI",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 300],
+            "range": ["#00FF00", "#FFFF00", "#FF7E00", "#FF0000", "#A500B5"]
+          }
+        },
+        "tooltip": [
+          {"field": "properties.name", "title": "State"},
+          {"field": "AQI", "title": "AQI"}
+        ]
+      },
+      "transform": [
+        {"filter": "selectedMonth === 'January'"},
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "values": [
+                {"State": "Selangor", "AQI": 61},
+                {"State": "Johor", "AQI": 34},
+                {"State": "Pulau Pinang", "AQI": 55},
+                {"State": "Negeri Sembilan", "AQI": 49},
+                {"State": "Terengganu", "AQI": 40},
+                {"State": "Pahang", "AQI": 43},
+                {"State": "Perlis", "AQI": 49},
+                {"State": "Kuala Lumpur", "AQI": 50},
+                {"State": "Kedah", "AQI": 49},
+                {"State": "Perak", "AQI": 47},
+                {"State": "Kelantan", "AQI": 51},
+                {"State": "Putrajaya", "AQI": 51},
+                {"State": "Melaka", "AQI": 39}
+              ]
+            },
+            "key": "State",
+            "fields": ["AQI"]
+          }
+        }
+      ]
+    },
+    {
+      "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
+      "encoding": {
+        "color": {
+          "field": "AQI",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 300],
+            "range": ["#00FF00", "#FFFF00", "#FF7E00", "#FF0000", "#A500B5"]
+          }
+        },
+        "tooltip": [
+          {"field": "properties.name", "title": "State"},
+          {"field": "AQI", "title": "AQI"}
+        ]
+      },
+      "transform": [
+        {"filter": "selectedMonth === 'February'"},
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "values": [
+                {"State": "Selangor", "AQI": 67},
+                {"State": "Johor", "AQI": 49},
+                {"State": "Pulau Pinang", "AQI": 62},
+                {"State": "Negeri Sembilan", "AQI": 59},
+                {"State": "Terengganu", "AQI": 51},
+                {"State": "Pahang", "AQI": 55},
+                {"State": "Perlis", "AQI": 55},
+                {"State": "Kuala Lumpur", "AQI": 58},
+                {"State": "Kedah", "AQI": 56},
+                {"State": "Perak", "AQI": 58},
+                {"State": "Kelantan", "AQI": 65},
+                {"State": "Putrajaya", "AQI": 62},
+                {"State": "Melaka", "AQI": 52}
+              ]
+            },
+            "key": "State",
+            "fields": ["AQI"]
+          }
+        }
+      ]
+    },
+    {
+      "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
+      "encoding": {
+        "color": {
+          "field": "AQI",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 300],
+            "range": ["#00FF00", "#FFFF00", "#FF7E00", "#FF0000", "#A500B5"]
+          }
+        },
+        "tooltip": [
+          {"field": "properties.name", "title": "State"},
+          {"field": "AQI", "title": "AQI"}
+        ]
+      },
+      "transform": [
+        {"filter": "selectedMonth === 'March'"},
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "values": [
+                {"State": "Selangor", "AQI": 67},
+                {"State": "Johor", "AQI": 47},
+                {"State": "Pulau Pinang", "AQI": 59},
+                {"State": "Negeri Sembilan", "AQI": 58},
+                {"State": "Terengganu", "AQI": 41},
+                {"State": "Pahang", "AQI": 52},
+                {"State": "Perlis", "AQI": 47},
+                {"State": "Kuala Lumpur", "AQI": 61},
+                {"State": "Kedah", "AQI": 52},
+                {"State": "Perak", "AQI": 56},
+                {"State": "Kelantan", "AQI": 52},
+                {"State": "Putrajaya", "AQI": 60},
+                {"State": "Melaka", "AQI": 55}
+              ]
+            },
+            "key": "State",
+            "fields": ["AQI"]
+          }
+        }
+      ]
+    },
+    {
+      "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
+      "encoding": {
+        "color": {
+          "field": "AQI",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 300],
+            "range": ["#00FF00", "#FFFF00", "#FF7E00", "#FF0000", "#A500B5"]
+          }
+        },
+        "tooltip": [
+          {"field": "properties.name", "title": "State"},
+          {"field": "AQI", "title": "AQI"}
+        ]
+      },
+      "transform": [
+        {"filter": "selectedMonth === 'April'"},
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "values": [
+                {"State": "Selangor", "AQI": 63},
+                {"State": "Johor", "AQI": 52},
+                {"State": "Pulau Pinang", "AQI": 47},
+                {"State": "Negeri Sembilan", "AQI": 58},
+                {"State": "Terengganu", "AQI": 44},
+                {"State": "Pahang", "AQI": 52},
+                {"State": "Perlis", "AQI": 37},
+                {"State": "Kuala Lumpur", "AQI": 58},
+                {"State": "Kedah", "AQI": 40},
+                {"State": "Perak", "AQI": 49},
+                {"State": "Kelantan", "AQI": 50},
+                {"State": "Putrajaya", "AQI": 57},
+                {"State": "Melaka", "AQI": 60}
+              ]
+            },
+            "key": "State",
+            "fields": ["AQI"]
+          }
+        }
+      ]
+    },
+    {
+      "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
+      "encoding": {
+        "color": {
+          "field": "AQI",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 300],
+            "range": ["#00FF00", "#FFFF00", "#FF7E00", "#FF0000", "#A500B5"]
+          }
+        },
+        "tooltip": [
+          {"field": "properties.name", "title": "State"},
+          {"field": "AQI", "title": "AQI"}
+        ]
+      },
+      "transform": [
+        {"filter": "selectedMonth === 'May'"},
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "values": [
+                {"State": "Selangor", "AQI": 64},
+                {"State": "Johor", "AQI": 45},
+                {"State": "Pulau Pinang", "AQI": 48},
+                {"State": "Negeri Sembilan", "AQI": 54},
+                {"State": "Terengganu", "AQI": 39},
+                {"State": "Pahang", "AQI": 46},
+                {"State": "Perlis", "AQI": 32},
+                {"State": "Kuala Lumpur", "AQI": 58},
+                {"State": "Kedah", "AQI": 39},
+                {"State": "Perak", "AQI": 50},
+                {"State": "Kelantan", "AQI": 44},
+                {"State": "Putrajaya", "AQI": 54},
+                {"State": "Melaka", "AQI": 55}
+              ]
+            },
+            "key": "State",
+            "fields": ["AQI"]
+          }
+        }
+      ]
+    },
+    {
+      "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
+      "encoding": {
+        "color": {
+          "field": "AQI",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 300],
+            "range": ["#00FF00", "#FFFF00", "#FF7E00", "#FF0000", "#A500B5"]
+          }
+        },
+        "tooltip": [
+          {"field": "properties.name", "title": "State"},
+          {"field": "AQI", "title": "AQI"}
+        ]
+      },
+      "transform": [
+        {"filter": "selectedMonth === 'June'"},
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "values": [
+                {"State": "Selangor", "AQI": 61},
+                {"State": "Johor", "AQI": 52},
+                {"State": "Pulau Pinang", "AQI": 51},
+                {"State": "Negeri Sembilan", "AQI": 54},
+                {"State": "Terengganu", "AQI": 47},
+                {"State": "Pahang", "AQI": 51},
+                {"State": "Perlis", "AQI": 46},
+                {"State": "Kuala Lumpur", "AQI": 56},
+                {"State": "Kedah", "AQI": 43},
+                {"State": "Perak", "AQI": 48},
+                {"State": "Kelantan", "AQI": 47},
+                {"State": "Putrajaya", "AQI": 53},
+                {"State": "Melaka", "AQI": 59}
+              ]
+            },
+            "key": "State",
+            "fields": ["AQI"]
+          }
+        }
+      ]
+    },
+    {
+      "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
+      "encoding": {
+        "color": {
+          "field": "AQI",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 300],
+            "range": ["#00FF00", "#FFFF00", "#FF7E00", "#FF0000", "#A500B5"]
+          }
+        },
+        "tooltip": [
+          {"field": "properties.name", "title": "State"},
+          {"field": "AQI", "title": "AQI"}
+        ]
+      },
+      "transform": [
+        {"filter": "selectedMonth === 'July'"},
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "values": [
+                {"State": "Selangor", "AQI": 62},
+                {"State": "Johor", "AQI": 49},
+                {"State": "Pulau Pinang", "AQI": 54},
+                {"State": "Negeri Sembilan", "AQI": 55},
+                {"State": "Terengganu", "AQI": 51},
+                {"State": "Pahang", "AQI": 55},
+                {"State": "Perlis", "AQI": 42},
+                {"State": "Kuala Lumpur", "AQI": 56},
+                {"State": "Kedah", "AQI": 45},
+                {"State": "Perak", "AQI": 54},
+                {"State": "Kelantan", "AQI": 55},
+                {"State": "Putrajaya", "AQI": 56},
+                {"State": "Melaka", "AQI": 60}
+              ]
+            },
+            "key": "State",
+            "fields": ["AQI"]
+          }
+        }
+      ]
+    },
+    {
+      "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
+      "encoding": {
+        "color": {
+          "field": "AQI",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 300],
+            "range": ["#00FF00", "#FFFF00", "#FF7E00", "#FF0000", "#A500B5"]
+          }
+        },
+        "tooltip": [
+          {"field": "properties.name", "title": "State"},
+          {"field": "AQI", "title": "AQI"}
+        ]
+      },
+      "transform": [
+        {"filter": "selectedMonth === 'August'"},
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "values": [
+                {"State": "Selangor", "AQI": 58},
+                {"State": "Johor", "AQI": 43},
+                {"State": "Pulau Pinang", "AQI": 43},
+                {"State": "Negeri Sembilan", "AQI": 48},
+                {"State": "Terengganu", "AQI": 46},
+                {"State": "Pahang", "AQI": 50},
+                {"State": "Perlis", "AQI": 30},
+                {"State": "Kuala Lumpur", "AQI": 50},
+                {"State": "Kedah", "AQI": 34},
+                {"State": "Perak", "AQI": 46},
+                {"State": "Kelantan", "AQI": 47},
+                {"State": "Putrajaya", "AQI": 49},
+                {"State": "Melaka", "AQI": 54}
+              ]
+            },
+            "key": "State",
+            "fields": ["AQI"]
+          }
+        }
+      ]
+    },
+    {
+      "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
+      "encoding": {
+        "color": {
+          "field": "AQI",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 300],
+            "range": ["#00FF00", "#FFFF00", "#FF7E00", "#FF0000", "#A500B5"]
+          }
+        },
+        "tooltip": [
+          {"field": "properties.name", "title": "State"},
+          {"field": "AQI", "title": "AQI"}
+        ]
+      },
+      "transform": [
+        {"filter": "selectedMonth === 'September'"},
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "values": [
+                {"State": "Selangor", "AQI": 60},
+                {"State": "Johor", "AQI": 46},
+                {"State": "Pulau Pinang", "AQI": 45},
+                {"State": "Negeri Sembilan", "AQI": 48},
+                {"State": "Terengganu", "AQI": 43},
+                {"State": "Pahang", "AQI": 43},
+                {"State": "Perlis", "AQI": 32},
+                {"State": "Kuala Lumpur", "AQI": 52},
+                {"State": "Kedah", "AQI": 37},
+                {"State": "Perak", "AQI": 46},
+                {"State": "Kelantan", "AQI": 47},
+                {"State": "Putrajaya", "AQI": 47},
+                {"State": "Melaka", "AQI": 49}
+              ]
+            },
+            "key": "State",
+            "fields": ["AQI"]
+          }
+        }
+      ]
+    },
+    {
+      "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
+      "encoding": {
+        "color": {
+          "field": "AQI",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 300],
+            "range": ["#00FF00", "#FFFF00", "#FF7E00", "#FF0000", "#A500B5"]
+          }
+        },
+        "tooltip": [
+          {"field": "properties.name", "title": "State"},
+          {"field": "AQI", "title": "AQI"}
+        ]
+      },
+      "transform": [
+        {"filter": "selectedMonth === 'October'"},
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "values": [
+                {"State": "Selangor", "AQI": 65},
+                {"State": "Johor", "AQI": 51},
+                {"State": "Pulau Pinang", "AQI": 48},
+                {"State": "Negeri Sembilan", "AQI": 54},
+                {"State": "Terengganu", "AQI": 45},
+                {"State": "Pahang", "AQI": 47},
+                {"State": "Perlis", "AQI": 37},
+                {"State": "Kuala Lumpur", "AQI": 55},
+                {"State": "Kedah", "AQI": 37},
+                {"State": "Perak", "AQI": 46},
+                {"State": "Kelantan", "AQI": 52},
+                {"State": "Putrajaya", "AQI": 53},
+                {"State": "Melaka", "AQI": 54}
+              ]
+            },
+            "key": "State",
+            "fields": ["AQI"]
+          }
+        }
+      ]
+    },
+    {
+      "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
+      "encoding": {
+        "color": {
+          "field": "AQI",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 300],
+            "range": ["#00FF00", "#FFFF00", "#FF7E00", "#FF0000", "#A500B5"]
+          }
+        },
+        "tooltip": [
+          {"field": "properties.name", "title": "State"},
+          {"field": "AQI", "title": "AQI"}
+        ]
+      },
+      "transform": [
+        {"filter": "selectedMonth === 'November'"},
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "values": [
+                {"State": "Selangor", "AQI": 59},
+                {"State": "Johor", "AQI": 42},
+                {"State": "Pulau Pinang", "AQI": 39},
+                {"State": "Negeri Sembilan", "AQI": 49},
+                {"State": "Terengganu", "AQI": 29},
+                {"State": "Pahang", "AQI": 34},
+                {"State": "Perlis", "AQI": 28},
+                {"State": "Kuala Lumpur", "AQI": 52},
+                {"State": "Kedah", "AQI": 31},
+                {"State": "Perak", "AQI": 39},
+                {"State": "Kelantan", "AQI": 36},
+                {"State": "Putrajaya", "AQI": 44},
+                {"State": "Melaka", "AQI": 46}
+              ]
+            },
+            "key": "State",
+            "fields": ["AQI"]
+          }
+        }
+      ]
+    },
+    {
+      "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
+      "encoding": {
+        "color": {
+          "field": "AQI",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 300],
+            "range": ["#00FF00", "#FFFF00", "#FF7E00", "#FF0000", "#A500B5"]
+          }
+        },
+        "tooltip": [
+          {"field": "properties.name", "title": "State"},
+          {"field": "AQI", "title": "AQI"}
+        ]
+      },
+      "transform": [
+        {"filter": "selectedMonth === 'December'"},
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "values": [
+                {"State": "Selangor", "AQI": 65},
+                {"State": "Johor", "AQI": 37},
+                {"State": "Pulau Pinang", "AQI": 49},
+                {"State": "Negeri Sembilan", "AQI": 50},
+                {"State": "Terengganu", "AQI": 40},
+                {"State": "Pahang", "AQI": 41},
+                {"State": "Perlis", "AQI": 42},
+                {"State": "Kuala Lumpur", "AQI": 56},
+                {"State": "Kedah", "AQI": 46},
+                {"State": "Perak", "AQI": 48},
+                {"State": "Kelantan", "AQI": 50},
+                {"State": "Putrajaya", "AQI": 49},
+                {"State": "Melaka", "AQI": 45}
+              ]
+            },
+            "key": "State",
+            "fields": ["AQI"]
+          }
+        }
+      ]
+    }
+  ],
+  "config": {}
+}
