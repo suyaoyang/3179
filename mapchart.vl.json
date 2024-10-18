@@ -3,8 +3,8 @@
   "width": 380,
   "height": 380,
   "title": {
-    "text": "Average AQI by State in West Malaysia For Each Month",
-    "fontSize": 18
+    "text": "",
+    "fontSize": 1
   },
   "params": [
     {
